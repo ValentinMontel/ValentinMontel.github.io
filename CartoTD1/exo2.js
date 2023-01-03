@@ -1,17 +1,19 @@
 /*navigator.geolocation.getCurrentPosition(success());*/
 
-var position = "Bonjour";
-ReactDOM.render((React.createElement("h1", null, position)), document.getElementById('Tposition'));
+var orientation = "Bonjour";
+ReactDOM.render((React.createElement("h1", null, orientation)), document.getElementById('Torientation'));
 
-/*if (window.DeviceOrientationEvent) {
+if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", function(event) {
-      // alpha : rotation autour de l'axe z
       var rotateDegrees = event.alpha;
-      // gamma : de gauche à droite
       var leftToRight = event.gamma;
-      // bêta : mouvement avant-arrière
       var frontToBack = event.beta;
   
       handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
     }, true);
-  }*/
+  }
+
+  var handleOrientationEvent = function(frontToBack, leftToRight, rotateDegrees) {
+    
+  };
+
