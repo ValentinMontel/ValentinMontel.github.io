@@ -1,7 +1,17 @@
 /*navigator.geolocation.getCurrentPosition(success());*/
 
-var orientation = "Bonjour";
+var orientation = "position";
+var précision = "précision";
+var vitesse = "vitesse";
+var date = "date";
+var orientation = "orientation";
+var alpha = "alpha";
+var beta = "beta";
+var gamma = "gamma";
+var mouvement = "mouvement";
+
 ReactDOM.render((React.createElement("p", null, orientation)), document.getElementById('Torientation'));
+
 
 if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", function(event) {
