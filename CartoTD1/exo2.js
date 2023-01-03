@@ -1,14 +1,14 @@
 /*navigator.geolocation.getCurrentPosition(success());*/
 
-var orientation = "position";
-var précision = "précision";
-var vitesse = "vitesse";
-var date = "date";
-var orientation = "orientation";
-var alpha = "alpha";
-var beta = "beta";
-var gamma = "gamma";
-var mouvement = "mouvement";
+var orientation = "Position: ";
+var précision = "Précision: ";
+var vitesse = "vitesse: ";
+var date = "date: ";
+var orientation = "orientation: ";
+var alpha = "alpha: ";
+var beta = "beta: ";
+var gamma = "gamma: ";
+var mouvement = "mouvement: ";
 
 ReactDOM.render((React.createElement("p", null, orientation)), document.getElementById('Torientation'));
 $(".Torientation").append("<p id='Talpha'>");
