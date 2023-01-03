@@ -1,7 +1,7 @@
 /*navigator.geolocation.getCurrentPosition(success());*/
 
 var orientation = "Bonjour";
-ReactDOM.render((React.createElement("h1", null, orientation)), document.getElementById('Torientation'));
+ReactDOM.render((React.createElement("p", null, orientation)), document.getElementById('Torientation'));
 
 if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", function(event) {
