@@ -11,7 +11,7 @@ var gamma = "gamma";
 var mouvement = "mouvement";
 
 ReactDOM.render((React.createElement("p", null, orientation)), document.getElementById('Torientation'));
-
+$(".Torientation").append("<p id='Talpha'>");
 
 if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", function(event) {
@@ -24,6 +24,6 @@ if (window.DeviceOrientationEvent) {
   }
 
   var handleOrientationEvent = function(frontToBack, leftToRight, rotateDegrees) {
-    
+    $(".Talpha").text(frontToBack);
   };
 
