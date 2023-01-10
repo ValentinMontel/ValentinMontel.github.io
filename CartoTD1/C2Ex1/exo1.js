@@ -5,8 +5,8 @@ window.addEventListener("load", (event) => {
 function getCurrentPosition() {
 
   function success(position) {
-      latitude = position.coords.latitude
-      longitude = position.coords.longitude
+      this.latitude = position.coords.latitude
+      this.longitude = position.coords.longitude
       setTimeout( getCurrentPosition, 5000)
   }
 
