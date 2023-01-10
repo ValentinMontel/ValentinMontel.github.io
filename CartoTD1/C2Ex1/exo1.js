@@ -8,7 +8,7 @@ window.addEventListener("load", (event) => {
 function getCurrentPosition() {
 
   function success(position) {
-      document.getElementById("phrase1").innerHTML = position.coords.latitude + "/" + position.coords.longitude
+      document.getElementById("phrase1").innerHTML = "Est-ce bien votre carte ?"
       main(position)
   }
 
@@ -26,7 +26,8 @@ function getCurrentPosition() {
 
 function main(position){
   var map = L.map('map').setView([position.coords.latitude, position.coords.longitude], 13);
-  /*var map = L.map('map').setView([43.83, 4.36], 13);*/
+  var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
+  var marker = L.marker([43.6961, 7.27178]).addTo(map);
   
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
