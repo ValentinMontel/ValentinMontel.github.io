@@ -22,14 +22,46 @@ function getCurrentPosition() {
 }
 
 function main(position){
+  const distanceNiceMarseille=calculDistance([43.6961, 7.27178],[43.3, 5.4])
   var map = L.map('map').setView([position.coords.latitude, position.coords.longitude], 13);
+  var layer = new L.StamenTileLayer("toner");
   var positionMarker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
   var NiceMarker = L.marker([43.6961, 7.27178]).addTo(map);
+  var MarseilleMarker = L.marker([43.3, 5.4]).addTo(map);
+
+  var bermudaTriangle = L.polygon([
+    [32.99, -64.79],
+    [18.216919, -66.580912],
+    [29.122349, -80.991361]
+  ],{
+    color: 'red'
+  }).addTo(map);
+
+  var accuracyCircle = L.circle([position.coords.latitude, position.coords.longitude], {
+    color: 'red',
+    fillColor: '#0000000',
+    fillOpacity: 0.1,
+    radius: position.coords.accuracy
+  }).addTo(map);
+
+  var NiceMarseille = L.polygon([
+    [43.6961, 7.27178],
+    [43.3, 5.4]
+  ]).addTo(map);
+  NiceMarseille.bindPopup(distance.toString());
 
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }).addTo(map);
+
+  var Stamen_Toner = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.{ext}', {
+    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    subdomains: 'abcd',
+    minZoom: 0,
+    maxZoom: 20,
+    ext: 'png'
+  });
 }
 
 function calculDistance(cord1,cord2){
