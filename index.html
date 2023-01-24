@@ -7,8 +7,45 @@
         </style>
     </head>
     <body>
-        <canvas id="mycanvas" width="1200" height="800"></canvas>
-        <img id="fond" src="Montagne_prairie.jpg">
     </body>
-    <script src="./CartoTD3/exo2.js"></script>
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://unpkg.com/three@0.148.0/build/three.module.js"
+            //"three/addons/": "https://unpkg.com/three@0.148.0/examples/jsm/"
+          }
+        }
+    </script>
+    <script type="module">
+        import * as THREE from 'three';
+
+        var scene = new THREE.Scene();
+        var aspect = window.innerWidth / window.innerHeight;
+        var camera = new THREE.PerspectiveCamera( 75, aspect, 0.1, 1000 );
+        var renderer = new THREE.WebGLRenderer();
+
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        document.body.appendChild( renderer.domElement );
+
+        const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+        const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+        const cube = new THREE.Mesh( geometry, material );
+        scene.add( cube );
+
+        const texture = new THREE.TextureLoader().load( "images/water.jpg" );
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.RepeatWrapping;
+        texture.repeat.set( 4, 4 );
+
+        camera.position.z = 5;
+
+        var render = function () {
+            requestAnimationFrame( render );
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+            renderer.render( scene, camera );
+        };
+
+        render();
+    </script>
 </html>
